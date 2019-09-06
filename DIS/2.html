@@ -1,0 +1,137 @@
+
+<html>
+<head>
+<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <base href="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href=".\assets\images\fav.ico">
+    <link rel="shortcut icon" type="image/x-icon" href=".\assets\images\fav.ico">
+
+    <link rel="stylesheet" href="assets/css/ux-aspects.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/qtm-bs3.css">
+    <link rel="stylesheet" href="assets/css/renewal.css">
+
+<style id="fuze__fonts-for-external-page">
+@font-face {font-family: 'Roboto-Light';font-style: normal;font-weight: lighter;src: local('Roboto Light'), local(Roboto-Light),url('chrome-extension://kcehcblfpidimbihdfophhhdejckolgh/styles/roboto/roboto-light.ttf') format('truetype');}
+@font-face {font-family: 'Roboto-Regular';font-style: normal;font-weight: normal;src: local('Roboto Regular'), local(Roboto-Regular),url('chrome-extension://kcehcblfpidimbihdfophhhdejckolgh/styles/roboto/roboto-regular.ttf') format('truetype');}
+@font-face {font-family: 'Roboto-Medium';font-style: normal;font-weight: bold;src: local('Roboto Medium'), local(Roboto-Medium),url('chrome-extension://kcehcblfpidimbihdfophhhdejckolgh/styles/roboto/roboto-medium.ttf') format('truetype');}</style>
+<link id="" rel="stylesheet" type="text/css" href="chrome-extension://kcehcblfpidimbihdfophhhdejckolgh/styles/styles.css"></head>
+<body ng-app="idmUiApp" org-theme-dir="" org-theme-html-lang="" style="display: block;" class="ng-scope">
+  <script id="opbs-storage-prefix" type="application/json">/idm-service</script>
+
+  <!-- Framebusting logic. See: http://seclab.stanford.edu/websec/framebusting/framebust.pdf -->
+  <style>
+      body {
+          display: none;
+          background-color: white;
+      }
+	  .center-div
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 3px;
+}
+  </style>
+ 
+  <style>
+  </style>
+  <script>
+
+      if (self == top) {
+          document.getElementsByTagName("body")[0].style.display = 'block';
+      } else {
+          top.location = self.location;
+      }
+  </script>
+
+  <script>
+      /**
+       * Rewrite base.href to be an absolute URL. Only necessary for IE 9, but works fine in other browsers.
+       */
+      function toAbsURL(s) {
+          var l = location,
+                  h, p, f, i;
+          if (/^\w+:/.test(s)) {
+              return s;
+          }
+          h = l.protocol + '//' + l.host + (l.port != '' ? (':' + l.port) : '');
+          if (s.indexOf('/') == 0) {
+              return h + s;
+          }
+          p = l.pathname.replace(/\/[^\/]*$/, '');
+          f = s.match(/\.\.\//g);
+          if (f) {
+              s = s.substring(f.length * 3);
+              for (i = f.length;;) {
+                  i =
+                          p = p.substring(0, p.lastIndexOf('/'));
+              }
+          }
+          return h + p + '/' + s;
+      }
+
+      var base = document.getElementsByTagName('base')[0];
+      base.href = toAbsURL(base.href);
+  </script>
+
+ <panel>  
+<div>
+
+      <p>Here's the list of subjects. Select any one:</p>
+      <form>
+         <select name = "dropdown">
+            <option value = "Computer Architecture" selected>Computer Architecture</option>
+            <option value = "Java">Java</option>
+            <option value = "Discrete Mathematics">Discrete Mathematics</option>
+         </select>
+      
+
+
+        <div id="form-panel" class="form-panel">
+            <!-- ngIf: tenant.disclaimerText -->
+            <!-- ngIf: !tenant.disclaimerText --><div id="center-div"  class="center-div">
+                <h1 name="portalTitle" class="form-title ng-binding">Docker Image Scanner</h1>
+                <form class="form-flat ng-pristine ng-valid" ng-submit="login()">
+                    <div class="form-group float-label">
+                        <input id="username" type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="credentials.username"  autocomplete="off" autofocus="autofocus" data-value="">
+                        <label id="usernameLabel" for="username" >User Name</label>
+                    </div>
+                    <!-- ngIf: !hidePassword --><div class="form-group float-label ng-scope">
+                        <input id="password" type="password" class="form-control ng-pristine ng-untouched ng-valid ng-empty"    data-value="">
+                        <label for="password" class="ng-binding">Password</label>
+                    </div><!-- end ngIf: !hidePassword -->
+                    <!-- ngIf: tenant.enableSecureId -->
+                    <div class="form-group clearfix login-error">
+                        <!-- ngIf: message -->
+                    </div>
+                    <div class="form-group">
+                        <div class="text-right">
+                            <!-- ngIf: showback -->
+                            <!-- ngIf: !hidePassword --><button id="submit"  class="btn btn-primary ng-binding ng-scope" >Submit</button><!-- end ngIf: !hidePassword -->
+                            <!-- ngIf: hidePassword -->
+                        </div>
+                    </div>
+                </form>
+                <!-- ngIf: tenant.enableDbUserSignup -->
+                <!-- ngIf: tenant.enableForgetPassword -->
+            </div><!-- end ngIf: !tenant.disclaimerText -->
+        </div>
+    </div>
+
+   
+	</panel>
+</body>
+   
+</html>
+

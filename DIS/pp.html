@@ -1,0 +1,214 @@
+
+
+<head>
+<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <base href="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href=".\assets\images\fav.ico">
+    <link rel="shortcut icon" type="image/x-icon" href=".\assets\images\fav.ico">
+
+    <link rel="stylesheet" href="assets/css/ux-aspects.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/qtm-bs3.css">
+    <link rel="stylesheet" href="assets/css/renewal.css">
+
+<style id="fuze__fonts-for-external-page">
+@font-face {font-family: 'Roboto-Light';font-style: normal;font-weight: lighter;src: local('Roboto Light'), local(Roboto-Light),url('chrome-extension://kcehcblfpidimbihdfophhhdejckolgh/styles/roboto/roboto-light.ttf') format('truetype');}
+@font-face {font-family: 'Roboto-Regular';font-style: normal;font-weight: normal;src: local('Roboto Regular'), local(Roboto-Regular),url('chrome-extension://kcehcblfpidimbihdfophhhdejckolgh/styles/roboto/roboto-regular.ttf') format('truetype');}
+@font-face {font-family: 'Roboto-Medium';font-style: normal;font-weight: bold;src: local('Roboto Medium'), local(Roboto-Medium),url('chrome-extension://kcehcblfpidimbihdfophhhdejckolgh/styles/roboto/roboto-medium.ttf') format('truetype');}</style>
+<link id="" rel="stylesheet" type="text/css" href="chrome-extension://kcehcblfpidimbihdfophhhdejckolgh/styles/styles.css"></head>
+<body ng-app="idmUiApp" org-theme-dir="" org-theme-html-lang="" style="display: block;" class="ng-scope">
+  <script id="opbs-storage-prefix" type="application/json">/idm-service</script>
+
+  <!-- Framebusting logic. See: http://seclab.stanford.edu/websec/framebusting/framebust.pdf -->
+  <style>
+      body {
+          display: none;
+          background-color: white;
+      }
+  </style>
+ 
+  <style>
+  </style>
+  <script>
+
+      if (self == top) {
+          document.getElementsByTagName("body")[0].style.display = 'block';
+      } else {
+          top.location = self.location;
+      }
+  </script>
+
+  <script>
+  
+      /**
+       * Rewrite base.href to be an absolute URL. Only necessary for IE 9, but works fine in other browsers.
+       */
+      function toAbsURL(s) {
+	  
+          var l = location,
+                  h, p, f, i;
+          if (/^\w+:/.test(s)) {
+              return s;
+          }
+          h = l.protocol + '//' + l.host + (l.port != '' ? (':' + l.port) : '');
+          if (s.indexOf('/') == 0) {
+              return h + s;
+          }
+          p = l.pathname.replace(/\/[^\/]*$/, '');
+          f = s.match(/\.\.\//g);
+          if (f) {
+              s = s.substring(f.length * 3);
+              for (i = f.length;;) {
+                  i =
+                          p = p.substring(0, p.lastIndexOf('/'));
+              }
+          }
+          return h + p + '/' + s;
+      }
+
+      var base = document.getElementsByTagName('base')[0];
+      base.href = toAbsURL(base.href);
+	  
+	  var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function validate(){
+b="hello";
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( (username == "admin" && password == "admin") | (username == "user" && password == "user") ){
+//alert ("Login successfully");
+//sessionStorage.setItem("condition", "hello");
+//console.log(sessionStorage.getItem("condition"));
+window.location = "home.html"; // Redirecting to other page.
+return false;
+}
+else{
+attempt --;// Decrementing by one.
+alert("You have left "+attempt+" attempt;");
+// Disabling fields after 3 attempts.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
+	  function authenticate() {
+	  console.log(document.getElementsById("bvc"));
+	    console.log("hi");
+	   if ((username=='admin' && password=='admin') ||(username=='user' && password=='user')) {
+		window.location.href="file:///C:/MyPCBackup-Dec42018/WORK/DevOps/Hackfest/DIS-master/DIS/home.html";
+	   }
+	   
+	  }
+  </script>
+
+    <div class="ui-view-root-container full-height">
+      <!-- ngView: --><div ng-view="" class="full-height ng-scope"><div idm-busy="tenant$get,theme$get" class="ng-scope ng-isolate-scope"><!-- ngIf: activeTrackers() -->
+
+<div ng-transclude=""></div>
+</div>
+<div name="login_page" class="full-height ng-scope">
+<security-banner class="ng-scope"><!-- ngIf: org.securityLevel --></security-banner>
+    <div class="login-container login-alternate-1" ng-class="{'qtm-rtl-mode': isRtl}">
+        <!-- ngIf: tenant.backgroundImageUrl -->
+        <!-- ngIf: !tenant.backgroundImageUrl --><div class="graphic-panel ng-scope" ng-if="!tenant.backgroundImageUrl" style="background-image: url(assets/images/default_login.jpg)">&nbsp;</div><!-- end ngIf: !tenant.backgroundImageUrl -->
+        <div class="content-panel">
+            <div name="logo_container" class="logo-container" ng-style="{'background-color': tenant.familyColor || '#00abf3'}" style="background-color: rgb(0, 171, 243);">
+                <!-- ngIf: tenant.iconUrl --><img ng-if="tenant.iconUrl" ng-src="" class="logo ng-scope" alt="" src=""><!-- end ngIf: tenant.iconUrl -->
+                <!-- ngIf: !tenant.iconUrl -->
+            </div>
+            <div class="character-grid animated playing">
+                <div class="character-grid-row">
+                    <span class="character-grid-col character-distance-6">+</span>
+                    <span class="character-grid-col character-distance-5">+</span>
+                    <span class="character-grid-col character-distance-4">+</span>
+                    <span class="character-grid-col character-distance-3">+</span>
+                    <span class="character-grid-col character-distance-2">+</span>
+                    <span class="character-grid-col character-distance-1">+</span>
+                </div><div class="character-grid-row">
+                    <span class="character-grid-col character-distance-6">+</span>
+                    <span class="character-grid-col character-distance-5">+</span>
+                    <span class="character-grid-col character-distance-4">+</span>
+                    <span class="character-grid-col character-distance-3">+</span>
+                    <span class="character-grid-col character-distance-2">+</span>
+                    <span class="character-grid-col character-distance-1">+</span>
+                </div><div class="character-grid-row">
+                    <span class="character-grid-col character-distance-6">+</span>
+                    <span class="character-grid-col character-distance-5">+</span>
+                    <span class="character-grid-col character-distance-4">+</span>
+                    <span class="character-grid-col character-distance-3">+</span>
+                    <span class="character-grid-col character-distance-2">+</span>
+                    <span class="character-grid-col character-distance-2">+</span>
+                </div><div class="character-grid-row">
+                    <span class="character-grid-col character-distance-6">+</span>
+                    <span class="character-grid-col character-distance-5">+</span>
+                    <span class="character-grid-col character-distance-4">+</span>
+                    <span class="character-grid-col character-distance-3">+</span>
+                    <span class="character-grid-col character-distance-3">+</span>
+                    <span class="character-grid-col character-distance-3">+</span>
+                </div><div class="character-grid-row">
+                    <span class="character-grid-col character-distance-6">+</span>
+                    <span class="character-grid-col character-distance-5">+</span>
+                    <span class="character-grid-col character-distance-4">+</span>
+                    <span class="character-grid-col character-distance-4">+</span>
+                    <span class="character-grid-col character-distance-4">+</span>
+                    <span class="character-grid-col character-distance-4">+</span>
+                </div>
+            </div>
+            <div class="family-icon" ng-style="{'border-color': tenant.familyColor || '#00abf3'}" style="border-color: rgb(0, 171, 243);">
+                <span class="ng-binding">I</span>
+            </div>
+            <div class="family-name-container">
+                <span dir="ltr" class="family-name ng-binding">ITOM DEVOPS</span>
+            </div>
+            <!-- ngIf: !tenant.portalFooterMsg && !tenant.footerLogoUrl --><div ng-if="!tenant.portalFooterMsg &amp;&amp; !tenant.footerLogoUrl" class="company-logo company-logo-image ng-scope"></div><!-- end ngIf: !tenant.portalFooterMsg && !tenant.footerLogoUrl -->
+            <!-- ngIf: !tenant.portalFooterMsg && tenant.footerLogoUrl -->
+        </div>
+        <div id="form-panel" class="form-panel">
+            <!-- ngIf: tenant.disclaimerText -->
+            <!-- ngIf: !tenant.disclaimerText --><div id="form-item"  class="ng-scope">
+                <h1 name="portalTitle" class="form-title ng-binding">Docker Image Scanner</h1>
+                <form class="form-flat ng-pristine ng-valid" id="form_id" method="post" name="myform">
+                    <div class="form-group float-label">
+                        <input id="username" type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="credentials.username"  autocomplete="off" autofocus="autofocus" data-value="">
+                        <label id="usernameLabel" for="username" >User Name</label>
+                    </div>
+                    <!-- ngIf: !hidePassword --><div class="form-group float-label ng-scope">
+                        <input id="password" type="password" class="form-control ng-pristine ng-untouched ng-valid ng-empty"    data-value="">
+                        <label for="password" class="ng-binding">Password</label>
+                    </div><!-- end ngIf: !hidePassword -->
+                    <!-- ngIf: tenant.enableSecureId -->
+                    <div class="form-group clearfix login-error">
+                        <!-- ngIf: message -->
+                    </div>
+                    <div class="form-group">
+                        <div class="text-right">
+                            <!-- ngIf: showback -->
+                            <!-- ngIf: !hidePassword --><button  class="btn btn-primary ng-binding ng-scope" type="button" value="Login" id="submit" onclick="validate()">Log In</button><!-- end ngIf: !hidePassword -->
+                            <!-- ngIf: hidePassword -->
+                        </div>
+                    </div>
+                </form>
+                <!-- ngIf: tenant.enableDbUserSignup -->
+                <!-- ngIf: tenant.enableForgetPassword -->
+            </div><!-- end ngIf: !tenant.disclaimerText -->
+        </div>
+    </div>
+</div>
+
+<!-- ngIf: tenant.portalFooterMsg -->
+</div>
+    </div>
+	
+
+   <p id="xx"></p>
+
+
+<div id="fuze-for-browser-extension-dial-number__container_div"><div class="fuze-for-browser-extension-dial-modal" id="fuze-for-browser-extension-dial-modal"><div class="fuze-for-browser-extension-dial-modal__title">Fuze</div><p class="fuze-for-browser-extension-dial-modal__info" data-i18next="FUZELOC_callScreen_calling">calling...</p><p id="fuze-for-browser-extension-dial-modal__phone-number" class="fuze-for-browser-extension-dial-modal__phone-number"></p><div class="fuze-for-browser-extension-dial-modal__person-icon"></div><div class="fuze-for-browser-extension-dial-modal__line"></div><div class="fuze-for-browser-extension-dial-modal__preferred-device-icon"></div><div class="fuze-for-browser-extension-dial-modal__preferred-device-name"></div></div><div class="fuze-for-browser-extension-dial-modal__error"><span class="fuze-for-browser-extension-dial-modal__close-sign"></span><div class="fuze-for-browser-extension-dial-modal-error__title" data-i18next="FUZELOC_callScreen_canNotCompleteCall">Can't complete call</div><div class="fuze-for-browser-extension-dial-modal-error__info"><span data-i18next="FUZELOC_callScreen_errorInfo_firstPart">We're sorry about that. Please try again or </span><a class="fuze-for-browser-extension-message__link" href="https://www.fuze.com/support" target="_blank" data-i18next="FUZELOC_callScreen_contactSupport">contact support</a> <span data-i18next="FUZELOC_callScreen_errorInfo_endPart">if you continue to have issues.</span></div><div class="fuze-for-browser-extension-dial-modal-error__button-wrapper"><button class="fuze-for-browser-extension-notification__cancel-button" data-i18next="FUZELOC_generic_cancel">Cancel</button><button class="fuze-for-browser-extension-notification__confirm-button" data-i18next="FUZELOC_generic_retry">Retry</button></div></div></div><a class="fuze-for-browser-extension-injected-tooltip__tooltip"></a><span class="fuze-for-browser-extension-injected-tooltip__tooltip-arrow"></span><div id="TPN_THINKINGCONNECTOR_INSTALLED"></div></body>
