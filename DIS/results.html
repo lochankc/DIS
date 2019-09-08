@@ -15,9 +15,6 @@
   width: 100%;
   max-width: 400px;
 }
-
-
-
 .container .btn {
   position: relative;
   
@@ -31,17 +28,14 @@
   border-radius: 5px;
   text-align: center;
 }
-
 .container .btn:hover {
   background-color: black;
   color: white;
 }
-
 .st {
   margin: 2em auto;
   max-width: 600px;
 }
-
 form div {
     margin-bottom: 0.5em;
 }
@@ -49,16 +43,13 @@ form div label, form div input {
     display: block;
     margin-bottom: 0.3em;
 }
-
 .navbar-inverse {
     background-color: #dff0d8;
     border-color: #080808;
 }
-
 .navbar-inverse .navbar-brand {
     color: #337ab7;
 }
-
 .topnav-centered a {
   float: none;
   position: absolute;
@@ -66,19 +57,52 @@ form div label, form div input {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .nav-h{
 height: 80px; /* Just an example height*/
 }
-
 .middlee {
-
 float: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+body {
+    background-color: #DCDEDF;
+}
+.navbar{
+    background-color: #080808;
+}
+
+h3{
+    text-align: center;
+    font-family: monospace;
+}
+table {
+    max-width: 90%;
+    margin: auto;
+    background-color: #29CDFE;
+    border-radius: 10px;
+}
+table, th, td {
+  border: 3px solid #DCDEDF;
+  border-collapse: collapse; 
+}
+td{
+    text-align: center;
+    padding: 20px;
+}
+.container-fluid{
+    padding: 15px;
+}
+#example5{
+    max-width: 90%;
+    margin: auto;
+}
+#scanResult, #memoryResult, #validateResult{
+    background-color: #29CDFE;
+}
+
 
 </style>
 
@@ -86,28 +110,26 @@ float: none;
 <body onload="listImage()">
 
 <nav class="navbar navbar-inverse nav-h">
-<a class="navbar-brand" href="#">
-    <img src="assets/images/MF200.png" alt="logo" style="width:150px;">
-  </a>
-  <div class="container-fluid">
-    <div class="navbar-header ">
-      <a class="navbar-brand " href="home.html">DEFINED RULES</a>
+    <a class="navbar-brand" href="#">
+        <img src="Assets.jpg" alt="logo" style="width:150px;">
+    </a>
+
+    <div class="container-fluid">
+        <div class="navbar-header ">
+            <a class="navbar-brand " href="home.html">DEFINED RULES</a>
+        </div>
+
+        <div class="navbar-header">
+            <a class="navbar-brand " href="home.html">RESULTS</a>
+        </div>
+
+        <div class="navbar-header ">
+            <a class="navbar-brand " href="home.html">BEST PRACTICE</a>
+        </div>
     </div>
-	<div class="container-fluid">
-    <div class="navbar-header ">
-      <a class="navbar-brand " href="home.html">RESULTS</a>
-    </div>
-	<div class="container-fluid">
-    <div class="navbar-header ">
-      <a class="navbar-brand " href="home.html">BEST PRACTICE</a>
-    </div>
-  
-  
-   
-  </div>
 </nav>
 <h3>Docker Image Scanner </h3>
-<div id="example5" >
+<div id="example5">
 
 </div>
 <div id="tableData">
@@ -143,8 +165,6 @@ float: none;
 
 
 <script>
-
-
   
   //call api/v1
   //get json
@@ -161,7 +181,6 @@ float: none;
   
  // var s = JSON.stringify(variable)
  // var o = JSON.parse(variable);
-
    var json=Object.keys(variable.statusReport);
    console.log(json);
   // alert(variable.statusReport);
@@ -240,7 +259,7 @@ float: none;
 	  scanData+=scan[i]+"\n";
 	  
 	  }
-	  scanData+="</textarea> </div> <br><br>";
+	  scanData+="</textarea> </div><br>";
 	  //close scan data
 	  
 	  //add memory layout
@@ -249,7 +268,7 @@ float: none;
 	  memoryData+= "Inefficient Memory "+memory.inefficientBytes+" Bytes\n";
 	  memoryData+= "Image Size "+memory.sizeBytes+" Bytes\n";
 	  
-	  memoryData+="</textarea> </div><br><br>";
+	  memoryData+="</textarea> </div><br>";
 	  //close memory data
 	  
 	  //add validate layout
@@ -257,7 +276,7 @@ float: none;
 	  validateData+=validate[i].description+"--------"+validate[i].warning+"\n";
 	  
 	  }
-	  validateData+="</textarea> </div><br><br>";
+	  validateData+="</textarea> </div><br>";
 	  //close validate data
 	  
 	  
@@ -269,13 +288,7 @@ float: none;
   
   
   
-
 			
-
-
-
-
-
 </script>
 </body>
 
